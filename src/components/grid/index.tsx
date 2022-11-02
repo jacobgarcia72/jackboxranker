@@ -17,6 +17,7 @@ const Grid = () => {
 
     const [gameSortment, setGameSortment] = useState<GameSortment>(getInitialState());
     const [searchTerm, setSearchTerm] = useState<string>('');
+    const [highlightedColumn, setHighlightedColumn] = useState<string>('');
 
     const setRanking = (game: Game, currentRanking: string, newRanking: string) => {
         const newState = { ...gameSortment };
@@ -26,7 +27,15 @@ const Grid = () => {
     }
 
     const renderGamesList = (games: Game[], rankingKey: string) => {
-        return games.map((game) => <Card key={game.title} game={game} onSelect={(newRanking) => setRanking(game, rankingKey, newRanking)} />)
+        return games.map((game) => (
+            <Card
+                key={game.title}
+                game={game}
+                clickable={Boolean(highlightedColumn) && highlightedColumn !== rankingKey}
+                onSelect={(newRanking) => setRanking(game, rankingKey, newRanking)}
+                onClick={() => setRanking(game, rankingKey, highlightedColumn)}
+            />
+        ))
     }
 
     const filterGames = (games: Game[]) => {
@@ -37,10 +46,18 @@ const Grid = () => {
         <table className={styles.grid}>
             <thead>
                 <tr>
-                    <th>
+                    <th onClick={() => setHighlightedColumn('')}>
                         Filter:<input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
                     </th>
-                    {rankings.map((ranking) => <th key={ranking.key}>{ranking.displayText}</th>)}
+                    {rankings.map((ranking) => (
+                        <th
+                            key={ranking.key}
+                            onClick={() => setHighlightedColumn(highlightedColumn === ranking.key ? '' : ranking.key)}
+                            className={highlightedColumn === ranking.key ? styles.highlight : ''}
+                        >
+                            {ranking.displayText}
+                        </th>
+                    ))}
                 </tr>
             </thead>
             <tbody>
@@ -48,7 +65,7 @@ const Grid = () => {
                     <td>
                         {renderGamesList(filterGames(gameSortment.unsorted), 'unsorted')}
                     </td>
-                    {rankings.map((ranking) => <td key={ranking.key}>
+                    {rankings.map((ranking) => <td key={ranking.key} className={highlightedColumn === ranking.key ? styles.highlight : ''}>
                         {renderGamesList(gameSortment[ranking.key], ranking.key)}
                     </td>)}
                 </tr>

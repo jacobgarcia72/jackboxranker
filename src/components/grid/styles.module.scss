@@ -14,9 +14,17 @@
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 2px;
         padding: 10px;
+        &.highlight {
+            background-color: #90aee3;
+        }
     }
     th {
+        cursor: pointer;
         font-weight: 300;
+        &.highlight {
+            color: #fff;
+            font-weight: 600;
+        }
     }
     td {
         vertical-align: top;

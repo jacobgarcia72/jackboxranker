@@ -3,7 +3,7 @@ import rankings from '../../data/rankings.json';
 import styles from './styles.module.scss';
 import { useState } from 'react';
 
-const Card = ({ game, onSelect }: { game: Game; onSelect: (key: string) => void; }) => {
+const Card = ({ game, onSelect, clickable, onClick }: { game: Game; onSelect: (key: string) => void; clickable: boolean; onClick: () => void }) => {
 
     const [showMenu, setShowMenu] = useState<boolean>(false);
 
@@ -13,7 +13,7 @@ const Card = ({ game, onSelect }: { game: Game; onSelect: (key: string) => void;
     }
 
     return (
-        <div className={styles.card}>
+        <div className={`${styles.card} ${clickable && styles.clickable}`} onClick={clickable ? onClick : () => {}}>
             <div className={styles.title}>{game.title}</div>
             <div className={styles.select} onClick={() => setShowMenu(!showMenu)}>&#x25B6;</div>
             {showMenu && (
