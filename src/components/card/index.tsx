@@ -13,8 +13,8 @@ const Card = ({ game, onSelect, clickable, onClick }: { game: Game; onSelect: (k
     }
 
     return (
-        <div className={`${styles.card} ${clickable && styles.clickable}`} onClick={clickable ? onClick : () => {}}>
-            <div className={styles.title}>{game.title}</div>
+        <div className={styles.card}>
+            <div className={`${styles.title} ${clickable && styles.clickable}`} onClick={clickable ? onClick : () => {}}>{game.title}</div>
             <div className={styles.select} onClick={() => setShowMenu(!showMenu)}>&#x25B6;</div>
             {showMenu && (
                 <div className={styles.menu}>

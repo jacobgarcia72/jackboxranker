@@ -8,13 +8,13 @@
     position: relative;
     border: rgba(0, 0, 0, 0.5) 1px solid;
     font-weight: 200;
-    &.clickable {
-        cursor: pointer;
-    }
     .title {
         width: calc(100% - 40px);
         padding: 6px;
         line-height: 1;
+        &.clickable {
+            cursor: pointer;
+        }
     }
     .select {
         width: 30px;
