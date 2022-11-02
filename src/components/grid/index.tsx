@@ -17,7 +17,6 @@ const Grid = () => {
 
     const [gameSortment, setGameSortment] = useState<GameSortment>(getInitialState());
     const [searchTerm, setSearchTerm] = useState<string>('');
-    const [packFilter, setPackFilter] = useState<number>();
 
     const setRanking = (game: Game, currentRanking: string, newRanking: string) => {
         const newState = { ...gameSortment };
