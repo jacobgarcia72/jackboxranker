@@ -1,0 +1,23 @@
+.grid {
+    padding: 50px 50px 100px;
+    width: 100vw;
+    height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    border-spacing: 20px 5px;
+    thead {
+        height: 50px;
+    }
+    th, td {
+        background-color: #dfedff;
+        width: 20%;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.5) 2px 2px 2px;
+    }
+    th {
+        font-weight: 300;
+    }
+    td {
+        vertical-align: top;
+    }
+}

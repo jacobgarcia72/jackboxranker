@@ -1,0 +1,18 @@
+[
+    {
+        "displayText": "Love It!",
+        "key": "love"
+    },
+    {
+        "displayText": "Like It",
+        "key": "like"
+    },
+    {
+        "displayText": "Leave It",
+        "key": "leave"
+    },
+    {
+        "displayText": "Haven't Played",
+        "key": "none"
+    }
+]

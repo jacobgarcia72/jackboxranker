@@ -1,0 +1,50 @@
+.card {
+    background-color: #ffffff;
+    margin: 4px;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border: rgba(0, 0, 0, 0.5) 1px solid;
+    font-weight: 200;
+    .title {
+        width: calc(100% - 40px);
+        padding: 6px;
+        line-height: 1;
+    }
+    .select {
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #808ba0;
+        border-radius: 10px;
+        color: #fff;
+        position: absolute;
+        right: 5px;
+        cursor: pointer;
+    }
+    .menu {
+        position: absolute;
+        right: -150px;
+        width: 150px;
+        background-color: #fdfeff;
+        border: 1px #edeeef solid;
+        z-index: 999;
+        div {
+            padding: 2px 10px;
+            border-bottom: 1px #edeeef solid;
+            cursor: pointer;
+            &:last-child {
+                border-bottom: none;
+            }
+            &:hover {
+                background-color: #808ba0;
+                color: #fff;
+                font-weight: 400;
+            }
+        }
+    }
+}
